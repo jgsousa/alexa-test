@@ -35,12 +35,18 @@ alexaApp.dictionary = { "locationList": ["lisbon", "porto", "paris", "london", "
 alexaApp.intent("flightsto", {
     "slots": { "location": "locations" },
     "utterances": [
-      "to {locationList|location}", "search flights to {locationList|location}", "flights to {locationList|location}"
+      "search flights to {locationList|location}"
     ]
   },
   function(request, response) {
     response.say("Success!");
   }
+);
+
+alexaApp.intent("AMAZON.FallbackIntent", null,
+function(request, response) {
+  response.say("Fallback!");
+}
 );
 
 app.listen(PORT, () => console.log("Listening on port " + PORT + "."));

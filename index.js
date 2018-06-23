@@ -39,7 +39,8 @@ alexaApp.intent("flightsto", {
     ]
   },
   function(request, response) {
-    response.say("Success!");
+    var location = request.slot("location");
+    response.say("You asked for flights to" + location);
   }
 );
 

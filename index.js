@@ -29,13 +29,13 @@ app.set("view engine", "ejs");
 alexaApp.launch(function(request, response) {
   response.say("You launched the app!");
 });
-
-alexaApp.dictionary = { "names": ["matt", "joe", "bob", "bill", "mary", "jane", "dawn"] };
+alexaApp.customSlot("locations", ["lisbon", "porto", "paris", "london", "new york"]);
+alexaApp.dictionary = { "locationList": ["lisbon", "porto", "paris", "london", "new york", "rome"] };
 
 alexaApp.intent("flightsto", {
-    "slots": { "location": "location" },
+    "slots": { "location": "locations" },
     "utterances": [
-      "to {location}", "search flights to {location}", "flights to {location}"
+      "to {locationList|location}", "search flights to {locationList|location}", "flights to {locationList|location}"
     ]
   },
   function(request, response) {

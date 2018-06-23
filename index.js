@@ -32,10 +32,10 @@ alexaApp.launch(function(request, response) {
 
 alexaApp.dictionary = { "names": ["matt", "joe", "bob", "bill", "mary", "jane", "dawn"] };
 
-alexaApp.intent("nameIntent", {
-    "slots": { "NAME": "LITERAL" },
+alexaApp.intent("flightsto", {
+    "slots": { "location": "location" },
     "utterances": [
-      "my {name is|name's} {names|NAME}", "set my name to {names|NAME}"
+      "to {location}", "search flights to {location}", "flights to {location}"
     ]
   },
   function(request, response) {
